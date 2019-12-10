@@ -1,0 +1,43 @@
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin center-vertical {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// MIXINS FOR RESPONSIVE DESIGNS
+
+/*
+    0 - 600px (phones)
+    601px - 900px (portrait tablets)
+    901px - 1200px (landscape tablets)
+    1201px - 1800px - normal styles apply
+    1800px + (Extra large desktops)
+*/
+
+// recall 1em = 16px (16px is the default font size in a browser unless user changes it
+// and ofcourse it's good practice to use relative values rather than pixels
+
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) { @content }; //600px
+    }
+    @if $breakpoint == portrait-tablet {
+        @media (max-width: 56.25em) { @content }; //900px
+    }
+    @if $breakpoint == landscape-tablet {
+        @media (max-width: 75em) { @content }; //1200px
+    }
+    @if $breakpoint == large-desktop {
+        @media (min-width: 112.5em) { @content }; //1800px
+    }
+}

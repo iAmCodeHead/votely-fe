@@ -1,0 +1,35 @@
+.feature-box {
+    background-color: rgba($color-white,.8);
+    font-size: 1.5rem;
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: $border-radius;
+    box-shadow: 0 1.5rem 4rem rgba($color-black,.2);
+    transition: all .3s;
+    // transform: skewY(7deg);
+
+    @include respond(portrait-tablet) {
+        padding: 1rem;
+        font-size: 2rem;
+    }
+
+    &__icon {
+        font-size: 5rem;
+        margin-bottom: .5rem;
+        display: inline-block;
+        background-image: linear-gradient(
+            to right,
+            #d17399cb,
+             #a12255bb);
+             background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+
+    }
+
+    &:hover{
+        top: 2rem;
+        left: 0;
+        transform: scale(1.05) translateY(-.5rem);
+    }
+}

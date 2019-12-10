@@ -1,0 +1,63 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+
+light indigo: #d17399
+medium indigo: #b5577d
+Dark indigo: #a12255
+
+*/
+
+/* this is a reset using the universal selector 
+*   which allows browsers to render elements in the same way
+*/
+
+
+*,
+*::after,
+*::before { 
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+/* It is best to always set our global font-size, style e.t.c
+glabally since properties like these are inherited. as such, we
+can now use REMs to reference the global setting */
+
+html{
+    font-size: 62.5%;
+    /* REM is relative, as such we can now use REM is all of our
+    stylings reather than px, this makes it more relative and responsive */
+
+    @include respond(large-desktop) {
+        font-size: 75%; // here, 1rem = 12px i.e (12/16) * 100 = 75%
+    }
+
+
+    @include respond(landscape-tablet) {
+        font-size: 56.25%; // here, 1rem = 9px i.e (9/16) * 100 = 56.25%
+    }
+
+    @include respond(portrait-tablet) {
+        font-size: 55%; // here, 1rem = 8px i.e (8/16) * 100 = 50%
+    }
+
+    @include respond(phone) {
+        font-size: 50%;
+    }
+
+}
+
+body {
+    box-sizing: border-box; /* so that paddings and margins are no longer added to the total width or height of an element*/
+    padding: 3rem;
+
+    @include respond(portrait-tablet) {
+        padding: 0;
+    }
+}

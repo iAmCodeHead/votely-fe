@@ -1,0 +1,60 @@
+
+.header {
+    height: 95vh;
+    /* below, i specified a gradient mix of 2 colors from the right to the left and the it should b above the img, that is y it is coming as
+    the first argument */
+    background-image: linear-gradient(
+        to right bottom,
+        #d17399cb,
+         #a12255bb),
+         url('assets/img/ballot.jpg');
+    background-size: cover; /* this tries to stretch the img across*/
+    background-position: top;
+    /* clip-path below is used make the cutting shown beneath 
+     by specifying the 4 side for the polygon
+    clip-path: polygon(x y, x y, x y);
+    we keep counting from the top-left corner
+    */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    position: relative;
+
+    @media (min-resolution: 192dpi) and (min-width: 37.5em), 
+            (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), // -webkit-min-device-pixel-ratio - for SAFARI browsers
+            (min-width: 125em) { // remember media queries are always in EM.
+        background-image: linear-gradient(
+            to right bottom,
+            #d17399cb,
+             #a12255bb),
+             url('assets/img/voting-1.jpg');     
+    }
+
+
+    @include respond(portrait-tablet) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);    
+    }
+
+    @include respond(phone) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);    
+    }
+
+    &__logo-box {
+        position: absolute;
+        top:4rem; /* top and bottom now works relative to the parent element which is .header */
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;
+    }
+
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}
