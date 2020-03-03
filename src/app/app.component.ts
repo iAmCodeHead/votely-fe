@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import * as LogRocket from 'logrocket';
+LogRocket.init('osuhfs/lendsqr');
 
 @Component({
   selector: 'app-root',
